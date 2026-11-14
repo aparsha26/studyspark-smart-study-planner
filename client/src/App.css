@@ -1,0 +1,281 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f4ff;
+  color: #292544;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 245px;
+  background: #29234b;
+  color: white;
+  padding: 30px 20px;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 45px;
+  color: #d8ccff;
+}
+
+.sidebar p {
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ddd6f5;
+}
+
+.sidebar p:hover,
+.sidebar .active {
+  background: #7663c9;
+  color: white;
+}
+
+.main {
+  flex: 1;
+  padding: 35px;
+  min-width: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #77718f;
+}
+
+.avatar {
+  background: #7663c9;
+  color: white;
+  border-radius: 50%;
+  padding: 13px 18px;
+}
+
+.welcome {
+  margin: 25px 0;
+  padding: 28px;
+  border-radius: 18px;
+  color: #39305d;
+  background: linear-gradient(120deg, #e3dcff, #d9efff);
+}
+
+.welcome h2 {
+  margin-top: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.stat, .task-section {
+  background: white;
+  padding: 22px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px #30245a10;
+}
+
+.stat span {
+  font-size: 25px;
+}
+
+.stat h2 {
+  margin: 12px 0 5px;
+  color: #7663c9;
+}
+
+.stat p {
+  color: #77718f;
+  margin: 0;
+}
+
+.task-section h2 {
+  margin-top: 0;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.task-form input,
+.task-form select {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #ddd7ed;
+  border-radius: 8px;
+}
+
+.task-form button {
+  background: #7663c9;
+  color: white;
+  border: 0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 5px;
+  border-bottom: 1px solid #eeeaf5;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-info small {
+  display: block;
+  color: #888;
+  margin-top: 5px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.delete {
+  border: none;
+  background: #ffe8e8;
+  color: #d44;
+  padding: 8px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+}
+
+@media (max-width: 850px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    width: 180px;
+  }
+
+  .main {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 15px;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+}
+
+/* StudySpark Login and Signup */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f0ff;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(70, 40, 120, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-card h1 {
+  color: #7045b5 !important;
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
+
+.auth-card h2 {
+  color: #29213d !important;
+  text-align: center;
+  margin: 0;
+}
+
+.auth-card > p {
+  text-align: center;
+  color: #666;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  box-sizing: border-box;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 13px;
+  background: #7045b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.auth-card a {
+  color: #7045b5;
+}
+
+.auth-error {
+  color: red !important;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 24px;
+  }
+}
