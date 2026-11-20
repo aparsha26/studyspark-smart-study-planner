@@ -1,8 +1,31 @@
+const API = "http://localhost:5001/api";
 
-import axios from "axios";
+export async function apiRequest(path, options = {}) {
+  const token = localStorage.getItem("studyToken");
 
-const api = axios.create({
-  baseURL: "http://localhost:5000/api"
-});
+  const response = await fetch(`${API}${path}`, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options.headers
+    }
+  });
 
-export default api;
+  const data = await response.json();
+
+  if (!response.ok) {
+    if (response.status === 401) {
+      localStorage.removeItem("studyToken");
+      localStorage.removeItem("studyUser");
+      if (window.location.pathname !== "/login" && window.location.pathname !== "/signup") {
+        window.location.href = "/login";
+      }
+    }
+    throw new Error(data.message || "Something went wrong");
+  }
+
+  return data;
+}
+
+export default apiRequest;
